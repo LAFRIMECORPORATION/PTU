@@ -1,0 +1,15 @@
+h2 {
+    color: black;
+}
+
+.profil-section .form {
+    background-color: black;
+    width: 90%;
+    padding-top: 50px;
+    margin-top: 50px;
+
+}
+
+label {
+    color: red;
+}

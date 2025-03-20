@@ -1,0 +1,43 @@
+p {
+    color: red;
+    font-size: 45px;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barre de navigation */
+.nav {
+    background-color: #222;
+    padding: 15px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+/* Contenu des pages */
+.page {
+    text-align: center;
+    padding: 50px;
+}
