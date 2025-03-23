@@ -17,7 +17,7 @@ const pool = new Pool({
     host: 'localhost',
     database: 'projettech',
     password: 'merime',
-    port: 5432,
+    port: 5433,
 });
 
 app.post('/Login', async (req, res) => {
