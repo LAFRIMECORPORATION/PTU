@@ -1,0 +1,99 @@
+.publier-container {
+    padding: 2rem;
+    max-width: 700px;
+    margin: 40px, auto;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'segeo UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.image-preview img {
+    padding: 10px 20px;
+    min-height: 250px;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 70%;
+
+}
+
+.publier-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+
+}
+
+.publier-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.publier-form input,
+.publier-form textarea,
+.publier-form button {
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+.publier-form input::placeholder,
+.publier-form textarea::placeholder {
+    color: red;
+    font-style: italic;
+    opacity: 1;
+}
+
+
+
+
+
+.publier-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.publier-form button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.succes-message {
+    color: green;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.publier-form button:hover {
+    background-color: #030a11;
+}
+
+@media screen and (max-width: 600px) {
+    .publier-container {
+        padding: 1rem;
+        margin: 20px;
+
+    }
+
+    .publier-form input,
+    .publier-form textarea,
+    .publier-form button {
+        font-size: 0.9rem;
+    }
+}

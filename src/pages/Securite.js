@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Profil.css";
 
 const Securite = () => {
   const [ancienMdp, setAncienMdp] = useState("");
@@ -15,7 +16,8 @@ const Securite = () => {
   return (
     <div className="securite-section">
       <h2>Modifier le mot de passe</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}
+        className="form">
         <label>Ancien mot de passe :</label>
         <input type="password" value={ancienMdp} onChange={(e) => setAncienMdp(e.target.value)} />
         <label>Nouveau mot de passe :</label>

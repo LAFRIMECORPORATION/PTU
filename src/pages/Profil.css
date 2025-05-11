@@ -13,3 +13,11 @@ h2 {
 label {
     color: red;
 }
+
+.securite-section .form {
+    background-color: black;
+    width: 90%;
+    padding-top: 50px;
+    margin-top: 50px;
+
+}

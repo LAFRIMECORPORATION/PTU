@@ -2,21 +2,28 @@ require("dotenv").config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
 const { Pool } = require('pg');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const app = express();
+const publier = require('./publier')
+const crudserv = require('./crudserv')
 const router = express.Router();
 JWT_SECRET = "monsupersecret";
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
+app.use('/api', publier);
+app.use('/api', crudserv);
+app.use('/uploads', express.static('uploads'));
 
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'projettech',
-    password: 'merime',
+    database: 'PTU',
+    password: 'merime2005',
     port: 5433,
 });
 
