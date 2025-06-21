@@ -29,7 +29,7 @@ router.post('/publier', upload.single('fichier'), async (req, res) => {
             return res.status(400).json({ message: ' fichier manquant.' })
         }
         await pool.query(
-            'INSERT INTO projets (titre, description, categorie, fichier, date_publication)VALUES ($1, $2, $3, $4, NOW()) RETURNING*', [titre, description, categorie, fichier]
+            'INSERT INTO projets (titre, description, categorie, fichier, date_publication)VALUES ($1, $2, $3, $4, default) RETURNING*', [titre, description, categorie, fichier]
         );
         res.status(201).json({ message: 'projet publié succes' });
     } catch (err) {

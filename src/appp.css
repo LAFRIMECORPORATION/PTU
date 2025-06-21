@@ -6,7 +6,7 @@ body {
     font-family: Arial, sans-serif;
     background-image: url(./bg.jpg);
     margin-bottom: 15px;
-
+    touch-action: manipulation;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,6 +87,8 @@ input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 button {
@@ -123,6 +125,7 @@ input:focus {
 .App-logo {
     height: 40vmin;
     pointer-events: none;
+
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -143,7 +146,7 @@ input:focus {
 }
 
 .App-link {
-    color: #61dafb;
+    color: #0c1113;
 }
 
 @keyframes App-logo-spin {
@@ -159,90 +162,79 @@ input:focus {
 @media screen and (max-width: 768px) {
     .nav {
         display: none;
+        padding-bottom: 70px;
+    }
+
+    h1 {
+        font-size: 14px;
+        flex-wrap: wrap;
+    }
+
+    p {
+        font-size: 14px;
+        flex-wrap: wrap;
     }
 
     .nav-mob {
         display: flex;
         position: fixed;
         bottom: 0;
-
-        justify-content: space-between;
-        width: 100% auto;
-        height: 30px;
-        background-color: #111414;
-        border-top: 1px solid #ccc;
+        justify-content: space-around;
+        width: 100%;
+        padding: 5px 0;
+        background-color: #faf8f8;
         z-index: 1000;
         flex-wrap: nowrap;
-
-
-
-    }
-
-    .nav-mob ul {
-        display: flex;
-        justify-content: center;
-        width: 70%;
-        padding: 25px;
-        margin: 0;
-        list-style: none;
-        width: 100% auto;
-
-    }
-
-    .nav-mob li link {
-        color: white;
+        border-top: 3px solid #ccc;
         text-decoration: none;
-        display: flex;
-        flex-direction: column;
-        padding: 15px;
-        margin: 0;
-        font-size: 5px;
-        transition: color 0.2s;
-        flex: 1 1 auto;
-        min-width: 1px;
-        flex-shrink: 1;
-        margin-bottom: 1px;
-        gap: 1px;
-        width: 25% auto;
 
 
     }
 
-    .nav-mob li link svg {
-        font-size: 20px;
-        margin-bottom: 2px;
-        display: block;
-
-    }
-
-
-
-
-    .active-link {
+    .nav-mob .active-link {
         text-transform: capitalize;
-        background-size: 8px;
-        color: white;
-        background-color: rgb(51, 51, 80);
+        text-decoration: none;
+        color: blue;
+        background-color: rgb(255, 255, 255);
         font-weight: bold;
         border-radius: 1px;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         text-transform: uppercase;
-        color: red;
+
     }
 
-    .nav-mob li span {
-        font-size: 5px;
+    .nav-mob Link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 10px;
+        color: inherit;
+        color: black;
+        text-decoration: none;
+    }
+
+    .nav-mob .lan {
+        text-decoration: none;
+    }
+
+
+
+
+    .nav-mob svg {
+        font-size: 30px;
+        margin-bottom: 2px;
+        display: block;
+    }
+
+    .nav-mob span {
+
         display: block;
         text-align: center;
         margin-top: 2px;
         margin-bottom: 1px;
+        color: #050505;
+        text-decoration: none;
+        font-size: 10px;
     }
-
-    main {
-        margin-bottom: 70px;
-    }
-
-
-
 
 }

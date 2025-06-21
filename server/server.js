@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path')
 
 const { Pool } = require('pg');
 const bcrypt = require("bcryptjs");
@@ -10,14 +11,18 @@ const app = express();
 const publier = require('./publier')
 const crudserv = require('./crudserv')
 const router = express.Router();
-JWT_SECRET = "monsupersecret";
+const JWT_SECRET = "monsupersecret";
+const gesCompte = require('./gesCompte')
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use('/api', publier);
 app.use('/api', crudserv);
+app.use('/api', gesCompte);
 app.use('/uploads', express.static('uploads'));
+app.use('/UPLOAD', express.static(path.join(__dirname, 'UPLOAD')));
+
 
 const pool = new Pool({
     user: 'postgres',
@@ -46,16 +51,29 @@ app.post('/Login', async (req, res) => {
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if (!isPasswordValid) {
+            alert('mot de passe incorrect')
             return res.status(401).json({ message: "Mot de passe incorrect" });
+
         }
+        // creation du token
+        const token = jwt.sign({
+            id: user.id,
+            nom: user.username,
+            email: user.email
 
-        const token = jwt.sign({ id: user.id }, "monsupersecret", { expiresIn: "1h" });
+        }, JWT_SECRET, { expiresIn: "1h" });
 
-        res.status(200).json({ message: "Connexion réussie", token });
+        res.status(200).json({
+            message: "Connexion réussie", token,
+
+
+        });
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Erreur serveur" });
     }
+
     console.log(req.body);
 });
 

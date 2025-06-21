@@ -1,17 +1,20 @@
-.publier-container {
-    padding: 2rem;
-    max-width: 700px;
-    margin: 40px, auto;
-    background: #f9f9f9;
+div .publier-container {
+    display: flex;
+    width: 100% auto;
+    margin: 0px, auto;
+    background-color: #f9fbfc;
+    backdrop-filter: blur(20px);
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    justify-content: center;
     font-family: 'segeo UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    min-height: 70vh;
+    align-items: center;
+    flex-direction: column;
 }
 
 .image-preview img {
     padding: 10px 20px;
-    min-height: 250px;
+    min-height: 180px;
     object-fit: cover;
     margin-top: 10px;
     border-radius: 5px;
@@ -27,9 +30,13 @@
 }
 
 .publier-form {
-    display: flex;
+    height: 80%;
     flex-direction: column;
-    gap: 1rem;
+
+
+    width: 50% a;
+
+
 
 }
 
@@ -45,12 +52,7 @@
     color: white;
 }
 
-.publier-form input::placeholder,
-.publier-form textarea::placeholder {
-    color: red;
-    font-style: italic;
-    opacity: 1;
-}
+
 
 
 
@@ -89,6 +91,11 @@
         padding: 1rem;
         margin: 20px;
 
+    }
+
+    .publier-form {
+        padding: 1;
+        margin: 5px;
     }
 
     .publier-form input,

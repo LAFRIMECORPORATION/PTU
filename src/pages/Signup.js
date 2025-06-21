@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+
 
 function Signup() {
     const [form, setForm] = useState({ username: "", genre: "", numero: "", confirmPassword: "", email: "", password: "" });
@@ -14,9 +15,13 @@ function Signup() {
         e.preventDefault();
         try {
             const response = await axios.post("http://localhost:5000/signup", form);
+
+
             if (response.status === 201) {
                 alert('connexion reussite/');
-                navigate('/accueil');
+
+                console.log('utilisateur connecte:')
+                navigate('/login');
             }
         } catch (error) {
             alert(error.response?.data?.error || "Erreur lors de l'inscription");
@@ -26,7 +31,8 @@ function Signup() {
     return (
         <div>
             <h2>Inscription</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}
+            >
                 <div>
                     <label>Nom d'utilisateur :</label>
                     <input
@@ -86,6 +92,9 @@ function Signup() {
                 </label>
 
                 <button type="submit">S'inscrire</button>
+                <p>deja un compte?  <Link to="/login"  >Se connecter
+                </Link> </p>
+
             </form>
         </div>
     );

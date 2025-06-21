@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from 'jwt-decode';
 import axios from "axios";
 
-function Login() {
+const Login = ({ setIsAuthenticated }) => {
     const [form, setForm] = useState({ email: "", password: "" });
     const Navigate = useNavigate()
 
@@ -13,14 +14,19 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/Login", form);
-            if (response.status === 200) {
-
-                Navigate('/accueil')
-            }
+            const res = await axios.post("http://localhost:5000/Login", form);
+            const token = res.data.token
+            //stokage du token dans localstorage
+            localStorage.setItem('token', token);
+            localStorage.setItem('tokenTimestamp', Date.now().toString());
+            //decoder le token, pour recuperer les infos utiles si besoin
+            const decoded = jwtDecode(token)
+            setIsAuthenticated(true);
+            console.log('utilisateur connecte:', decoded)
+            Navigate('/accueil');
         } catch (error) {
             console.log(error.response);
-            alert(error.response?.data?.error || "Erreur lors de la connexion");
+            alert(error.response?.data?.error || "identifiant incorect");
         }
     };
 

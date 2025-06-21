@@ -71,9 +71,6 @@ footer {
 
 }
 
-img {
-    animation: slide 7s infinite;
-}
 
 b {
     margin-top: 170px;
@@ -138,6 +135,7 @@ body {
 .pio nav span {
     font-size: 30px;
     color: aqua;
+    text-decoration: none;
 }
 
 header {

@@ -44,19 +44,25 @@ function Publier() {
             <h2>publier un projet</h2>
             <form onSubmit={handleSubmit}
                 className="publier-form">
+                <label>donnez un titre au projet:</label>
                 <input
                     type="text"
                     placecholder="titre du projet"
-                    onChange={(e) => setTitre(e.target.value)} required />
+                    onChange={(e) => setTitre(e.target.value)} required
+                />
+                <label>description du projet :</label>
                 <textarea
                     placecholder="description"
                     value={description}
-                    onChange={(e) => setDescription(e.target.value)} required />
+                    onChange={(e) => setDescription(e.target.value)} required
+                />
+                <label>categorie du projet :</label>
                 <input
                     type="text"
                     placecholder="categorie"
                     value={categorie}
                     onChange={(e) => setCategorie(e.target.value)} required />
+                <label>photo du projet:</label>
                 <input
                     type="file"
                     onChange={handleFileChange} required />
@@ -64,7 +70,7 @@ function Publier() {
                     <div className="image-preview">
                         <img src={preview} alt="apercu du fichier" />
                     </div>
-                )};
+                )}
                 <button type="submit">publier</button>
             </form>
         </div>
