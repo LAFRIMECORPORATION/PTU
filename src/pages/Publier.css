@@ -1,4 +1,4 @@
-div .publier-container {
+.publier-container {
     display: flex;
     width: 100% auto;
     margin: 0px, auto;
@@ -42,7 +42,9 @@ div .publier-container {
 
 .publier-form input,
 .publier-form textarea,
-.publier-form button {
+.publier-form button,
+.publier-form select,
+.publier-form option {
 
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -100,7 +102,9 @@ div .publier-container {
 
     .publier-form input,
     .publier-form textarea,
-    .publier-form button {
+    .publier-form button,
+    .publier-form select,
+    .publier-form option {
         font-size: 0.9rem;
     }
 }

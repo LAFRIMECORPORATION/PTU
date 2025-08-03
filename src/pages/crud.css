@@ -1,18 +1,23 @@
 .crud-container {
     padding: 20px;
+    height: 100vh;
     max-width: 600px;
-    margin: auto;
-    background: #f9f9f9;
-    border-radius: 10px;
+    margin: 15px auto;
+    background: #b3a7a7d5;
+    border-radius: 25px;
     padding-top: 100px;
-    margin-top: 100px;
+    margin-top: 400px;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-content: center;
 
 }
 
 
-h2 {
+.crud-container h2 {
     text-align: center;
     margin-bottom: 15px;
+    color: black;
 }
 
 .form input {
@@ -86,7 +91,27 @@ h2 {
 
 @media (max-width:600px) {
     .crud-container {
+
         padding: 10px;
+        height: 100%;
+        max-width: 600px;
+        margin: 15px auto;
+        background: #b3a7a7d5;
+        border-radius: 25px;
+        padding-top: 100px;
+        margin-top: 500px;
+        margin-bottom: 100px;
+        align-items: center;
+        justify-content: center;
+
+
+
+    }
+
+    .form {
+        width: auto;
+        align-items: center;
+        justify-content: center;
     }
 
     .user-item {

@@ -1,39 +1,23 @@
-h2 {
-    color: rgb(185, 26, 26);
-}
-
-.profil-section .form {
-    background-color: black;
-    width: 90%;
-    padding-top: 50px;
-    margin-top: 50px;
-
-}
-
-label {
-    color: red;
-}
-
-.securite-section .form {
-    background-color: black;
-    width: 90%;
-    padding-top: 50px;
-    margin-top: 50px;
-
-}
-
-form button .dec {
-
-    background-color: red;
-}
-
 .mon-compte {
-    max-width: 400px;
-    margin: auto;
-    text-align: center;
     display: flex;
-    justify-content: center;
-    margin-top: 40px;
+
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+
+
+}
+
+form {
+    background-color: black;
+    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
+    padding: 30px;
+    box-sizing: border-box;
+    height: 90vh;
+
 }
 
 .photo-wrapper {
@@ -74,4 +58,17 @@ form button .dec {
 .icon-overlay svg {
     font-size: 20px;
     color: #555;
+}
+
+@media (max-width: 500px) {
+    form {
+        height: 90vh;
+        max-width: 100%;
+    }
+
+
+    form input,
+    form button {
+        font-size: 15px;
+    }
 }

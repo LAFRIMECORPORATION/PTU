@@ -3,23 +3,26 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path')
-
 const { Pool } = require('pg');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const app = express();
 const publier = require('./publier')
 const crudserv = require('./crudserv')
+const GestLikeCommentaire = require('./GestLikeCommentaire')
 const router = express.Router();
-const JWT_SECRET = "monsupersecret";
 const gesCompte = require('./gesCompte')
-
+const gesAccueil = require('./gesAccueil')
+const gesHist = require('./gesHist')
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use('/api', publier);
 app.use('/api', crudserv);
 app.use('/api', gesCompte);
+app.use('/api', gesAccueil);
+app.use('/api', gesHist);
+app.use('/api', GestLikeCommentaire);
 app.use('/uploads', express.static('uploads'));
 app.use('/UPLOAD', express.static(path.join(__dirname, 'UPLOAD')));
 
@@ -61,7 +64,7 @@ app.post('/Login', async (req, res) => {
             nom: user.username,
             email: user.email
 
-        }, JWT_SECRET, { expiresIn: "1h" });
+        }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
         res.status(200).json({
             message: "Connexion réussie", token,
