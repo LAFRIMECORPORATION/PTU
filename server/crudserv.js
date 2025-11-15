@@ -1,15 +1,16 @@
+require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 
 
-
+require('dotenv').config();
 const { Pool } = require('pg')
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'PTU',
-    password: 'merime2005',
-    port: 5433,
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST ,
+    database:  process.env.DB_NAME,
+    password:  process.env.DB_PASSWORD,
+    port:  process.env.DB_PORT,
 });
 //create//
 router.post('/crudserv', async (req, res) => {

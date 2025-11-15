@@ -1,18 +1,20 @@
+require('dotenv').config();
 const express = require("express");
 const router = express.Router();
-const { Pool } = require('pg')
+
 const authentificateToken = require('./auth')
+
+const { Pool } = require('pg')
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'PTU',
-    password: 'merime2005',
-    port: 5433,
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
 });
 
 // GET likes + commentaires pour un projet
-router.get('/projets/:id', authentificateToken, async (req, res) => {
-    console.log('Route  /interaction appeleé avec projet :', req.params.projetId)
+router.get('', authentificateToken, async (req, res) => {
 
     const projetsId = req.params.id
     const utilisateurId = req.user.id;
@@ -42,8 +44,9 @@ router.get('/projets/:id', authentificateToken, async (req, res) => {
     }
 
 });
+
 // POST like/unlike
-router.post('/api/projets/:projetId/like', authentificateToken, async (req, res) => {
+router.post('', authentificateToken, async (req, res) => {
     const projetId = req.params.id;
     const utilisateurId = req.user.id
     try {
@@ -68,7 +71,7 @@ router.post('/api/projets/:projetId/like', authentificateToken, async (req, res)
     }
 });
 //POST commentaire
-router.post('/api/projets/:projetId/comment', authentificateToken, async (req, res) => {
+router.post('', authentificateToken, async (req, res) => {
     const projetId = req.params.id
     const utilisateurId = req.user.id
     const { content } = req.body
@@ -86,7 +89,7 @@ router.post('/api/projets/:projetId/comment', authentificateToken, async (req, r
     } catch (err) {
         res.status(500).json({ error: 'erreur serveur', details: err });
     }
-
+    console.log('likes connectes')
 }
 );
 module.exports = router;

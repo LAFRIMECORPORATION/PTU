@@ -2,7 +2,7 @@ const express = require("express");
 require('dotenv').config();
 const router = express.Router();
 const multer = require('multer')
-const { Pool } = require('pg')
+
 const jwt = require('jsonwebtoken')
 
 const storage = multer.diskStorage({
@@ -14,12 +14,14 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({ storage: storage });
+require('dotenv').config();
+const { Pool } = require('pg')
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'PTU',
-    password: 'merime2005',
-    port: 5433,
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST ,
+    database:  process.env.DB_NAME,
+    password:  process.env.DB_PASSWORD,
+    port:  process.env.DB_PORT,
 });
 //middleware pour verifier le token 
 const verifyToken = (req, res, next) => {
