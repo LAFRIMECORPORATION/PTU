@@ -1,8 +1,8 @@
 require("dotenv").config();
+console.log("ENV", process.env.DB_URL)
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-require("dotenv").config();
 const path = require('path')
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -10,12 +10,12 @@ const app = express();
 const publier = require('./publier')
 const crudserv = require('./crudserv')
 const authentificateToken = require('./auth')
-
 const router = express.Router();
 const gesCompte = require('./gesCompte')
 const gesAccueil = require('./gesAccueil')
 const gesHist = require('./gesHist')
 app.use(cors());
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use('/api', publier);
@@ -26,14 +26,26 @@ app.use('/api', gesHist);
 
 app.use('/uploads', express.static('uploads'));
 app.use('/UPLOAD', express.static(path.join(__dirname, 'UPLOAD')));
-const { Pool } = require('pg')
+const { Pool } = require("pg");
 const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
+    connectionString: process.env.DB_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
+pool.connect()
+    .then(() => console.log("conexion a neon reussi"))
+    .catch(err => console.error("erreur de conexion a neon:", err))
+
+app.get('/test-db', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT NOW()');
+        res.json({ succes: true, time: result.row });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'BD ERROR', details: err.message })
+    }
+})
 app.post('/Login', async (req, res) => {
     const { email, password } = req.body;
 
@@ -201,9 +213,11 @@ router.post('/api/projets/:id/comment', authentificateToken, async (req, res) =>
 );
 
 
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log("serveur demarré sur le port " + PORT);
+    console.log(`serveur demarré sur le http://localhost:${PORT} `);
 });
+
 module.exports = router;
 

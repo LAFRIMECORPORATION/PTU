@@ -14,7 +14,8 @@ const Login = ({ setIsAuthenticated }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:5000/Login", form);
+            const res = await axios.post(`${import.meta.env.VITE_APT_URL}/Login`, form);
+
             const token = res.data.token
             //stokage du token dans localstorage
             localStorage.setItem('token', token);

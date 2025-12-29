@@ -14,7 +14,7 @@ function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/signup", form);
+            const response = await axios.post(`${import.meta.env.VITE_APT_URL}/signup`, form);
 
 
             if (response.status === 201) {
