@@ -13,6 +13,7 @@ function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("SUBMIT OK", form)
         try {
             const response = await axios.post(`${import.meta.env.VITE_APT_URL}/signup`, form);
 
