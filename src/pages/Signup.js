@@ -14,7 +14,7 @@ function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("SUBMIT OK", form)
-        console.log(import.meta.env);
+        console.log("25", import.meta.env);
         console.log("FULL URL =", `${import.meta.env.VITE_API_URL}/signup`)
         try {
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, form);
