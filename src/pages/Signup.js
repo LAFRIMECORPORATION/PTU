@@ -17,7 +17,7 @@ function Signup() {
         console.log("API URL =", import.meta.env.VITE_APT_URL);
         console.log("FULL URL =", `${import.meta.env.VITE_APT_URL}/signup`)
         try {
-            const response = await axios.post(`${import.meta.env.VITE_APT_URL}/signup`, form);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, form);
 
 
             if (response.status === 201) {
