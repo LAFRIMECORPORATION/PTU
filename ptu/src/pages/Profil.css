@@ -1,0 +1,74 @@
+.mon-compte {
+    display: flex;
+
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+
+
+}
+
+form {
+    background-color: black;
+    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
+    padding: 30px;
+    box-sizing: border-box;
+    height: 90vh;
+
+}
+
+.photo-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+}
+
+.photo-cercle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #f5ecec;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.photo-cercle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4, 5px solid white;
+}
+
+.icon-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.icon-overlay svg {
+    font-size: 20px;
+    color: #555;
+}
+
+@media (max-width: 500px) {
+    form {
+        height: 90vh;
+        max-width: 100%;
+    }
+
+
+    form input,
+    form button {
+        font-size: 15px;
+    }
+}

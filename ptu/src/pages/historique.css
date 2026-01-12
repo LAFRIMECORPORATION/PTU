@@ -1,0 +1,84 @@
+.mon-compte {
+    padding: 20px;
+    margin: auto;
+    max-width: 800px;
+    height: 100vh;
+    font-family: serif;
+    flex-direction: column;
+    box-sizing: border-box;
+    display: flex;
+    overflow: hidden;
+}
+
+.mon-compte h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: #131111;
+}
+
+.projets-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-x: hidden;
+
+    max-height: 70vh;
+    padding-right: 10px;
+    margin: 50px;
+
+}
+
+.carte-projet p {
+    color: #111010;
+}
+
+.carte-projet i {
+    color: #1110105e;
+    font-size: 1rem;
+}
+
+.carte-projet {
+    background: #fff;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-right: 50px;
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+.carte-projet:hover {
+    transform: translateY(-5);
+}
+
+.carte-projet img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.carte-projet h3 {
+    font-size: 1.2rem;
+    color: #d81b1b;
+    margin: 15px;
+}
+
+@media (max-width: 600px) {
+    .mon-compte h2 {
+        font-size: 1rem;
+    }
+
+    .carte-projet h3 {
+        font-size: 15px;
+        margin: 5px;
+    }
+
+    .projets-liste {
+        scrollbar-width: none;
+        overflow: auto;
+    }
+}

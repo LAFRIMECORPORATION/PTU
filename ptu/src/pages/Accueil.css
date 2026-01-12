@@ -1,0 +1,229 @@
+p {
+    color: red;
+    font-size: 45px;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barre de navigation */
+.nav {
+    background-color: #222;
+    padding: 15px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+/* Contenu des pages */
+.page {
+    text-align: center;
+    padding: 50px;
+}
+
+.accueil-container {
+    max-width: 600px;
+    margin-top: 2800px;
+
+    padding: 10px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 100px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profil-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: black;
+
+}
+
+.card-header small {
+    color: gray;
+    font-size: 0.8rem;
+}
+
+.card-body h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.category {
+    font-weight: bold;
+    color: #3b5998;
+    margin-bottom: 5px;
+}
+
+.description {
+    color: black;
+}
+
+.projet-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.post-footer button {
+    border-color: #f0f2f5;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #555;
+}
+
+/* skeleton */
+.skeleton {
+    background-color: #f0f0f0;
+    animation: pulse 1.5 infinite ease-in-out;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skeleton-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+.skeleton-text {
+    height: 14px;
+    background-color: #ddd;
+    border-radius: 4px;
+    margin: 8px 0;
+}
+
+.skeleton-text.short {
+    width: 30%;
+}
+
+.skeleton-text.medium {
+    width: 60%;
+}
+
+.skeleton-text.long {
+    width: 90%;
+}
+
+.skeleton-img-large {
+    width: 100%;
+    height: 200px;
+    background: #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #f0f0f0;
+    }
+
+    50% {
+        background-color: #e0e0e0;
+    }
+
+    100% {
+        background-color: #f0f0f0;
+    }
+}
+
+@media (max-width: 768) {
+    .accueil-container {
+        padding: 5px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .card-header h4 {
+        font-size: 0.95rem;
+    }
+
+    .post-body h3 {
+        font-size: 1rem;
+    }
+
+    .profil-pic {
+        width: 40px;
+        height: 40px;
+    }
+
+    .projet-image {
+        min-height: 300px;
+    }
+
+    .action {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-content input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480) {
+    .post-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+    }
+
+    .post-footer button {
+        width: 100%;
+    }
+}
